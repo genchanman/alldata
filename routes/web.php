@@ -13,3 +13,7 @@
 
 Route::get('/', 'RecordController@record');
 Route::post('/', 'RecordController@store');
+Route::get('/login', 'RecordController@login');
+Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider')->name('login');
+Route::get('/login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
