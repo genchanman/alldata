@@ -21,9 +21,5 @@ class RecordController extends Controller
         $input = $request['record'];
         $datas->create($input);
     }
-    protected $listen = [
-        \SocialiteProviders\Manager\SocialiteWasCalled::class => [
-        'SocialiteProviders\\Line\\LineExtendSocialite@handle',
-    ],
-        ]
+
 }
