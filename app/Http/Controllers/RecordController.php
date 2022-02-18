@@ -21,4 +21,8 @@ class RecordController extends Controller
         $input = $request['record'];
         $datas->create($input);
     }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 
 }
