@@ -6,10 +6,6 @@
     </head>
     <body>
         <div class="linelogin">
-    <div class="col-md-8 col-md-offset-4">
-        <a class="btn btn-default" href="/login/line">
-            Line Login
-        </a>             
    </div>
    </div>
     </body>
