@@ -13,7 +13,7 @@
 
 Route::get('/', 'RecordController@record');
 Route::post('/', 'RecordController@store');
-Route::get('/login', 'RecordController@login');
-Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider')->name('login');
-Route::get('/login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/timeline', 'RecordController@timeline');
+Route::get('/grades', 'RecordController@grades');
+Route::get('/login/line', 'RecordController@login');
+Route::get('login/line', 'RecordController@line');

@@ -30,5 +30,6 @@ class DataSeeder extends Seeder
           'threebase'=>1,
           'hr'=>1,
           ]);
+          
     }
 }
