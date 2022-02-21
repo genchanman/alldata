@@ -3,21 +3,22 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\Users as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+
 
 class User extends Model implements AuthenticatableContract
 {
-    use Authenticatable, Notifiable;
+   use Authenticatable, Notifiable;
+     protected $fillable = [
+        'name', 'e-mail', 'password', 'class' ];
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'provider', 'provided_user_id',
-    ];
+  
 
     /**
      * Get the password for the user.

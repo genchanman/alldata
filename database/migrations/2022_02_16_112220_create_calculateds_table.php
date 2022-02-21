@@ -15,6 +15,8 @@ class CreateCalculatedsTable extends Migration
     {
         Schema::create('calculateds', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->float('whip', 4, 3);
+            $table->float('ops', 4, 3);
             $table->timestamps();
         });
     }

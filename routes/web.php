@@ -15,5 +15,6 @@ Route::get('/', 'RecordController@record');
 Route::post('/', 'RecordController@store');
 Route::get('/timeline', 'RecordController@timeline');
 Route::get('/grades', 'RecordController@grades');
-Route::get('/login/line', 'RecordController@login');
-Route::get('login/line', 'RecordController@line');
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+

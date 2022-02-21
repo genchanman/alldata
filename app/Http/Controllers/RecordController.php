@@ -25,10 +25,6 @@ class RecordController extends Controller
         $input = $request['record'];
         $datas->create($input);
     }
-    public function login()
-    {
-        return view('omk/login');
-    }
     public function timeline(Timeline $timeline)
     {
         return view('omk/timeline')->with(['timelines'=>$timeline->get()]);
