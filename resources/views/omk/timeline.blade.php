@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>タイムライン</title>
+        <title>OMK</title>
     </head>
     <body>
         @foreach($timelines as $timeline)

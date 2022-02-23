@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Blog</title>
+        <title>OMK</title>
     </head>
     <body>
         <form action="/" method="POST">
@@ -76,6 +76,14 @@
                     <h3>HR</h3>
                     <input type="number" name="record[hr]" plaseholder="0"/>
                 </div>
+                <div class="userselect">
+               @foreach($users as $user)
+               <label>
+                    <input type="checkbox" value="{{$user->id}}" name="users_array[]"/>
+                    {{$user->name}}
+                </lavel>
+                 </div>
+                @endforeach
                 <input type="submit" value="保存"/>
                 </form>
                 

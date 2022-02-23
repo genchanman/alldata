@@ -2,14 +2,17 @@
 
 namespace App;
 
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Foundation\Auth\User as Authenticatable;
+// use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\Users as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 
-class User extends Model implements AuthenticatableContract
+class User extends Authenticatable
 {
-   use Authenticatable, Notifiable;
+   use Notifiable;
      protected $fillable = [
         'name', 'e-mail', 'password', 'class' ];
 
@@ -41,4 +44,25 @@ class User extends Model implements AuthenticatableContract
         // We don't use this.
         return '';
     }
+     public function calcurated()
+    {
+        return $this->belongsToMany('App/Calurated');
+    }
+    public function rankings()
+    {
+        return $this->belongsToMany('App/Rankings');
+    }
+    public function datas()
+    {
+        return $this->belongsToMany('App\Datas');
+    }
+    public function timeline()
+    {
+        return $this->belongsToMany('App/Timeline');
+    }
+     public function possion()
+    {
+        return $this->belongsToMany('App/Possion');
+    }
 }
+
