@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Users extends Model
 {
+    protected $fillable = [
+        'name', 'e-mail', 'password', 'class' ];
      public function calcurated()
     {
         return $this->belongsToMany('App/Calurated');

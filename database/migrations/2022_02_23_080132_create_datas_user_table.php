@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageColumnToCalculatedTable extends Migration
+class CreateDatasUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddImageColumnToCalculatedTable extends Migration
      */
     public function up()
     {
-        Schema::table('calcurated', function (Blueprint $table) {
-            $table->float('whip', 4, 3);
-            $table->float('ops', 4, 3);
+        Schema::create('datas_user', function (Blueprint $table) {
+            $table->biginteger('datas_id')->unsigned();
+            $table->biginteger('user_id')->unsighned();
+            $table->primary(['datas_id', 'user_id']);
         });
     }
 
@@ -26,8 +27,6 @@ class AddImageColumnToCalculatedTable extends Migration
      */
     public function down()
     {
-        Schema::table('calcurated', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('datas_user');
     }
 }
