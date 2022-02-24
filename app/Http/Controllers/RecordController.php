@@ -15,7 +15,7 @@ use App\Timeline;
 
 class RecordController extends Controller
 {
-    public function record(Users $users)
+    public function record(User $users)
     {
         return view('omk/record')->with(['users'=>$users->get()]);
     }
@@ -27,9 +27,26 @@ class RecordController extends Controller
        $datas->users()->attach($input_users);
        return redirect('grades');
     }
-    public function timeline(Timeline $timeline)
+    public function maketimeline(User $users, Timeline $timelines)
     {
-        return view('omk/timeline')->with(['timelines'=>$timeline->get()]);
+        return view('omk/maketimeline')->with(['users'=>$users->get()]);
+    }
+    public function make(Request $request, Timeline $timelines, User $user)
+    {
+        $input_timelines = $request['make'];
+        $input_users = $request -> users_array;
+        $timelines->fill($input_timelines)->save();
+        $timelines->users()->attach($input_users);
+        //$test = $users->get();
+       // dd($timelines->get());
+       // return redirect('timeline');
+        return view('omk/timeline')->with(["users"=>$user->get(), "timelines"=>$timelines->get()]);//->with(['users'=>$users->get()]);
+    }
+        
+    
+    public function timeline(User $users, Timeline $timelines)
+    {
+        return view('omk/timeline')->with(['timelines'=>$timelines->get()])->with(['users'=>$users->get()]);
     }
    
     public function grades(User $users, Datas $datas)

@@ -56,9 +56,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Datas');
     }
-    public function timeline()
+    public function timelines()
     {
-        return $this->belongsToMany('App/Timeline');
+        return $this->belongsToMany('App\Timeline');
     }
      public function possion()
     {

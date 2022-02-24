@@ -4,10 +4,9 @@
         <meta charset="utf-8">
         <title>OMK</title>
     </head>
+    <body>
     @foreach($users as $user)
         <h2 class='name'>{{$user->name}}</h2>
-    @endforeach    
-    <body>
         <div class="totalrecord">
             <table border="1">
             <tr>
@@ -37,7 +36,7 @@
         <td class="twobase">{{$datas->twobase}}</td>
         <td class="threebase">{{$datas->threebase}}</td>
         <td class="hr">{{$datas->hr}}</td>
-        <td class="deadball">{{$datas->deaball}}</td>
+        <td class="deadball">{{$datas->deadball}}</td>
         <td class="strikeout">{{$datas->strikeout}}</td>
         <td class="doppotunity">{{$datas->doppotunity}}</td>
         <td class="error">{{$datas->error}}</td>
@@ -51,6 +50,7 @@
         </tr>
         @endforeach
         </table>
+        @endforeach
         </div>
         
         
