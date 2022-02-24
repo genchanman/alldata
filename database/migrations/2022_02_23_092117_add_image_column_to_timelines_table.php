@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageColumnToCalculatedTable extends Migration
+class AddImageColumnToTimelinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddImageColumnToCalculatedTable extends Migration
      */
     public function up()
     {
-        Schema::table('calcurated', function (Blueprint $table) {
-            $table->float('whip', 4, 3);
-            $table->float('ops', 4, 3);
+        Schema::table('timelines', function (Blueprint $table) {
+            $table->string('title', 50);
+            $table->string('body', 200);
+            $table->binary('post')->nullable();
         });
     }
 
@@ -26,7 +27,7 @@ class AddImageColumnToCalculatedTable extends Migration
      */
     public function down()
     {
-        Schema::table('calcurated', function (Blueprint $table) {
+        Schema::table('timelines', function (Blueprint $table) {
             //
         });
     }

@@ -2,22 +2,26 @@
 
 namespace App;
 
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Foundation\Auth\User as Authenticatable;
+// use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Model implements AuthenticatableContract
+
+class User extends Authenticatable
 {
-    use Authenticatable, Notifiable;
+   use Notifiable;
+     protected $fillable = [
+        'name', 'e-mail', 'password', 'class' ];
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'provider', 'provided_user_id',
-    ];
+  
 
     /**
      * Get the password for the user.
@@ -40,4 +44,25 @@ class User extends Model implements AuthenticatableContract
         // We don't use this.
         return '';
     }
+     public function calcurated()
+    {
+        return $this->belongsToMany('App/Calurated');
+    }
+    public function rankings()
+    {
+        return $this->belongsToMany('App/Rankings');
+    }
+    public function datas()
+    {
+        return $this->belongsToMany('App\Datas');
+    }
+    public function timelines()
+    {
+        return $this->belongsToMany('App\Timeline');
+    }
+     public function possion()
+    {
+        return $this->belongsToMany('App/Possion');
+    }
 }
+

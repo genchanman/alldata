@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Datas;
 
-use App\Users;
+use App\User;
 
 use App\Timeline;
 
@@ -15,27 +15,44 @@ use App\Timeline;
 
 class RecordController extends Controller
 {
-    public function record()
+    public function record(User $users)
     {
-        return view('omk/record');
+        return view('omk/record')->with(['users'=>$users->get()]);
     }
     public function store(Request $request, Datas $datas)
     {
-       
-        $input = $request['record'];
-        $datas->create($input);
+       $input_datas = $request['record'];
+       $input_users = $request -> users_array;
+       $datas->fill($input_datas)->save();
+       $datas->users()->attach($input_users);
+       return redirect('grades');
     }
-    public function login()
+    public function maketimeline(User $users, Timeline $timelines)
     {
-        return view('omk/login');
+        return view('omk/maketimeline')->with(['users'=>$users->get()]);
     }
-    public function timeline(Timeline $timeline)
+    public function make(Request $request, Timeline $timelines, User $user)
     {
-        return view('omk/timeline')->with(['timelines'=>$timeline->get()]);
+        $input_timelines = $request['make'];
+        $input_users = $request -> users_array;
+        $timelines->fill($input_timelines)->save();
+        $timelines->users()->attach($input_users);
+        //$test = $users->get();
+       // dd($timelines->get());
+       // return redirect('timeline');
+        return view('omk/timeline')->with(["users"=>$user->get(), "timelines"=>$timelines->get()]);//->with(['users'=>$users->get()]);
+    }
+        
+    
+    public function timeline(User $users, Timeline $timelines)
+    {
+        return view('omk/timeline')->with(['timelines'=>$timelines->get()])->with(['users'=>$users->get()]);
     }
    
-    public function grades()
+    public function grades(User $users, Datas $datas)
     {
-        return view('omk/grades');
+        
+        return view('omk/grades')->with(['users'=>$users->get()]);
+        
     }
 }

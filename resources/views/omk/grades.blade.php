@@ -2,9 +2,11 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Blog</title>
+        <title>OMK</title>
     </head>
     <body>
+    @foreach($users as $user)
+        <h2 class='name'>{{$user->name}}</h2>
         <div class="totalrecord">
             <table border="1">
             <tr>
@@ -26,29 +28,31 @@
             <th>奪三振</th>
             <th>与四死球</th>
             </tr>
-        @foreach($users as $user)
+        @foreach($user->datas as $datas)
         <tr>
-        <td class="atbat">{{$user->datas as $datas}}</td>
-        <td class="storoke">{{$user->datas as $datas}}</td>
-        <td class="hit">{{$user->datas as $datas}}</td>
-        <td class="twobase">{{$user->datas as $datas}}</td>
-        <td class="threebase">{{$user->datas as $datas}}</td>
-        <td class="hr">{{$user->datas as $datas}}</td>
-        <td class="deadball">{{$user->datas as $datas}}</td>
-        <td class="strikeout">{{$user->datas as $datas}}</td>
-        <td class="doppotunity">{{$user->datas as $datas}}</td>
-        <td class="error">{{$user->datas as $datas}}</td>
-        <td class="outssllow">{{$user->datas as $datas}}</td>
-        <td class="poppotunity">{{$user->datas as $datas}}</td>
-        <td class="run">{{$user->datas as $datas}}</td>
-        <td class="remosepoint">{{$user->datas as $datas}}</td>
-        <td class="givehit">{{$user->datas as $datas}}</td>
-        <td class="gstrikeout">{{$user->datas as $datas}}</td>
-        <td class="givedeadball">{{$user->datas as $datas}}</td>
+        <td class="atbat">{{$datas->atbat}}</td>
+        <td class="storoke">{{$datas->storoke}}</td>
+        <td class="hit">{{$datas->hit}}</td>
+        <td class="twobase">{{$datas->twobase}}</td>
+        <td class="threebase">{{$datas->threebase}}</td>
+        <td class="hr">{{$datas->hr}}</td>
+        <td class="deadball">{{$datas->deadball}}</td>
+        <td class="strikeout">{{$datas->strikeout}}</td>
+        <td class="doppotunity">{{$datas->doppotunity}}</td>
+        <td class="error">{{$datas->error}}</td>
+        <td class="outssllow">{{$datas->outssllow}}</td>
+        <td class="poppotunity">{{$datas->poppotunity}}</td>
+        <td class="run">{{$datas->run}}</td>
+        <td class="remosepoint">{{$datas->remosepoint}}</td>
+        <td class="givehit">{{$datas->givehit}}</td>
+        <td class="gstrikeout">{{$datas->gstrikeout}}</td>
+        <td class="givedeadball">{{$datas->givedeadball}}</td>
         </tr>
         @endforeach
         </table>
+        @endforeach
         </div>
         
         
     </body>
+    </html>

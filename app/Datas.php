@@ -15,14 +15,14 @@ class Datas extends Model
     
     public function users()
     {
-        return $this->belongsToMany('App/user');
+        return $this->belongsToMany('App\User');
     }
     public function calcurated()
     {
-        return $this->belongsToMany('App/calurated');
+        return $this->belongsToMany('App/Calurated');
     }
     public function rankings()
     {
-        return $this->belongsToMany('App/rankings');
+        return $this->belongsToMany('App/Rankings');
     }
 }

@@ -16,6 +16,7 @@ class CreateTimelinesTable extends Migration
         Schema::create('timelines', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            
         });
     }
 

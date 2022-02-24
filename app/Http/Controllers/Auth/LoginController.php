@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Users;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
+    use AuthenticatesUsers;
     /**
      * Create a new controller instance.
      *
@@ -38,22 +40,22 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        $provided_user = Socialite::driver($provider)->user();
+        $provided_user = Socialite::driver($provider)->users();
 
-        $user = User::where('provider', $provider)
+        $users = Users::where('provider', $provider)
             ->where('provided_user_id', $provided_user->id)
             ->first();
 
-        if ($user === null) {
+        if ($users === null) {
             // redirect confirm
-            $user = User::create([
+            $users = Users::create([
                'name'               => $provided_user->name,
                'provider'           => $provider,
                'provided_user_id'   => $provided_user->id,
             ]);
         }
 
-        Auth::login($user);
+        Auth::login($users);
 
         return redirect()->route('index');
     }

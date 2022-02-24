@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCalculatedsTable extends Migration
+class CreateTimelineUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateCalculatedsTable extends Migration
      */
     public function up()
     {
-        Schema::create('calculateds', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->float('whip', 4, 3);
-            $table->float('ops', 4, 3);
-            $table->timestamps();
+        Schema::create('timeline_user', function (Blueprint $table) {
+            $table->biginteger('timeline_id')->unsighned();
+            $table->biginteger('user_id')->unsighned();
+            $table->primary(['timeline_id', 'user_id']);
         });
     }
 
@@ -28,6 +27,6 @@ class CreateCalculatedsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calculateds');
+        Schema::dropIfExists('timeline_user');
     }
 }
