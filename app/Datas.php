@@ -6,12 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Datas extends Model
 {
+
     public $timestamps = false;
       protected $fillable = [
         'atbat', 'storoke', 'error', 'run', 'givedeadball', 'hit', 'strikeout',
         'outssllow', 'remosepoint', 'deadball', 'doppotunity', 'poppotunity',
         'gstrikeout', 'givehit', 'twobase', 'threebase', 'hr'
     ];
+    public function  sum()
+    {
+        $users=DB::table('datas_user')->select('id')->groupBy('category')->get();
+    }
     
     public function users()
     {
@@ -25,4 +30,5 @@ class Datas extends Model
     {
         return $this->belongsToMany('App/Rankings');
     }
+   
 }
