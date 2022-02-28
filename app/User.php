@@ -21,7 +21,6 @@ class User extends Authenticatable
      *
      * @var array
      */
-  
 
     /**
      * Get the password for the user.
