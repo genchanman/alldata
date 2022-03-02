@@ -75,26 +75,106 @@
             <th>与四死球</th>
             </tr>
     <tr>
+        @if($user !== null)
         <td class="atbat">{{$user->datas->sum('atbat')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="storoke">{{$user->datas->sum('storoke')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="hit">{{$user->datas->sum('hit')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="drate">{{$user->datas->sum('hit')/$user->datas->sum('storoke')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="twobase">{{$user->datas->sum('twobase')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="threebase">{{$user->datas->sum('threebase')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="hr">{{$user->datas->sum('hr')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="srate">{{$user->datas->sum('twobase', 'threebase', 'hr')/$user->datas->sum('hit')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="deadball">{{$user->datas->sum('deadball')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="strikeout">{{$user->datas->sum('strikeout')}}</td>
+        @else
+        <td></td>
+        @endif
+        @if($user !== null)
         <td class="doppotunity">{{$user->datas->sum('doppotunity')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="error">{{$user->datas->sum('error')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="outssllow">{{$user->datas->sum('outssllow')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="poppotunity">{{$user->datas->sum('poppotunity')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="run">{{$user->datas->sum('run')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="remosepoint">{{$user->datas->sum('remosepoint')}}</td>
+        @endif
+         @if($user !== null)
         <td class="drate">{{$user->datas->sum('remosepoint')/$user->datas->sum('poppotunity')*9}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="givehit">{{$user->datas->sum('givehit')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="gstrikeout">{{$user->datas->sum('gstrikeout')}}</td>
+        @else
+        <td></td>
+        @endif
+         @if($user !== null)
         <td class="givedeadball">{{$user->datas->sum('givedeadball')}}</td>
+        @else
+        <td></td>
+        @endif
+        
+        
     </tr>
         </table>
         </div>
