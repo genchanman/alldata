@@ -5,16 +5,17 @@
         <title>OMK</title>
     </head>
     <body>
-         @foreach($users as $user)
-          <div class="name">
-        <h2 class='name'>{{$user->name}}</h2>
-        </div>
         <div class="timeline">
-            @foreach($user->timelines as $timeline)
-            <div class='title'>{{$timeline->title}}</div>
+            @foreach($timelines as $timeline)
+            <div class='title'>
+                <h2>{{$timeline->title}}</h2>
+                </div>
             <div class='body'>{{$timeline->body}}</div>
             <div class='post'>{{$timeline->post}}</div>
-            @endforeach
+             @foreach($timeline->users as $user)
+          <div class="name">
+        <h3 class='name'>{{$user->name}}</h3>
+        @endforeach
         </div>
         @endforeach
         <a href="/maketimeline">make</a>

@@ -15,7 +15,8 @@ class User extends Authenticatable
    use Notifiable;
      protected $fillable = [
         'name', 'e-mail', 'password', 'class' ];
-
+        
+        
     /**
      * The attributes that are mass assignable.
      *

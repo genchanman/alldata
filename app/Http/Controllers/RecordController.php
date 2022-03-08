@@ -43,7 +43,7 @@ class RecordController extends Controller
     
     public function timeline(User $users, Timeline $timelines)
     {
-        return view('omk/timeline')->with(['timelines'=>$timelines->get()])->with(['users'=>$users->get()]);
+        return view('omk/timeline')->with(['timelines' => $timelines->getByLimit()]);
     }
    
     public function grades(User $users, Datas $datas )
