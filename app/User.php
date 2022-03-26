@@ -14,7 +14,7 @@ class User extends Authenticatable
 {
    use Notifiable;
      protected $fillable = [
-        'name', 'e-mail', 'password', 'class' ];
+        'name', 'e-mail', 'password', 'class', 'provider', 'provided_user_id', 'profile' ];
         
         
     /**
@@ -64,5 +64,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App/Possion');
     }
+   
+    
 }
 

@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <head>
         <meta charset="utf-8">
         <title>OMK</title>
@@ -12,11 +13,11 @@
                 </div>
             <div class='body'>{{$timeline->body}}</div>
             <div class='post'>{{$timeline->post}}</div>
-             @foreach($timeline->users as $user)
+            @foreach($timeline->users as $user)
           <div class="name">
         <h3 class='name'>{{$user->name}}</h3>
-        @endforeach
         </div>
+        @endforeach
         @endforeach
         <a href="/maketimeline">make</a>
     </body>

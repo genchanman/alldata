@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageColumnToDatasTable extends Migration
+class AddImageColumnToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddImageColumnToDatasTable extends Migration
      */
     public function up()
     {
-        Schema::table('datas', function (Blueprint $table) {
-            //
+        Schema::table('users', function (Blueprint $table) {
+           $table->integer('datas_id')->unsighned(); 
         });
     }
 
@@ -25,7 +25,7 @@ class AddImageColumnToDatasTable extends Migration
      */
     public function down()
     {
-        Schema::table('datas', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }
