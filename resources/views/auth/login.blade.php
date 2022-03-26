@@ -65,6 +65,7 @@
                             </div>
                         </div>
                     </form>
+                    <a href="{{route('linelogin', ['provider'=>'line'])}}">LINE LOGIN</a>
                 </div>
             </div>
         </div>

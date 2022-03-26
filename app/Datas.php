@@ -11,24 +11,28 @@ class Datas extends Model
       protected $fillable = [
         'atbat', 'storoke', 'error', 'run', 'givedeadball', 'hit', 'strikeout',
         'outssllow', 'remosepoint', 'deadball', 'doppotunity', 'poppotunity',
-        'gstrikeout', 'givehit', 'twobase', 'threebase', 'hr'
+        'gstrikeout', 'givehit', 'twobase', 'threebase', 'hr','created_at',
+        'slugging', 'user_id'
     ];
-    public function  sum()
-    {
-        $users=DB::table('datas_user')->select('id')->groupBy('category')->get();
-    }
     
+  // function getPaginateByLimit(int $limit_count = 5)
+  // {
+       
+   //}
     public function users()
     {
         return $this->belongsToMany('App\User');
     }
     public function calcurated()
     {
-        return $this->belongsToMany('App/Calurated');
+        return $this->belongsToMany('App/calcurated');
     }
     public function rankings()
     {
         return $this->belongsToMany('App/Rankings');
     }
-   
+  // public function authuser()
+   //{
+     //  $this::Auth::user();
+   //}
 }

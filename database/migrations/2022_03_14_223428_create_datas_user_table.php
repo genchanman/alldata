@@ -14,7 +14,7 @@ class CreateDatasUserTable extends Migration
     public function up()
     {
         Schema::create('datas_user', function (Blueprint $table) {
-            $table->biginteger('datas_id')->unsigned();
+             $table->biginteger('datas_id')->unsigned();
             $table->biginteger('user_id')->unsighned();
             $table->primary(['datas_id', 'user_id']);
         });
